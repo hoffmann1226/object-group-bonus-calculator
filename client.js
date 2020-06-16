@@ -56,9 +56,17 @@ function computeBonus(employee){
     };
 
     if(employee.reviewRating<=2){
-      employee.bonusPercentage=0;
+      employeeBonus.bonusPercentage=0;
+    };
+    else if (employee.reviewRating=3{
+      employeeBonus.bonusPercentage=.04
     }
-    
+    else if (employee.reviewRating=4){
+      employeeBonus.bonusPercentage=.06
+    }
+    else if (employee.reviewRating=5){
+      employeeBonus.bonusPercentage=.10
+    }
   }
 
 console.log( employees );
