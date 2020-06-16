@@ -48,14 +48,16 @@ totalBonus
 use number.toString().length to find digits in number
 
 */
+
 function computeBonus(employee){
     let employeeBonus={
     name: employee.name,
     bonusPercentage: 0,
-    totalCompensation:0,
+    totalCompensation: 0,
     totalBonus:0
     };
 
+//compute base bonus percentage
     if(employee.reviewRating<=2){
       employeeBonus.bonusPercentage=0;
     }else if (employee.reviewRating===3){
@@ -66,10 +68,11 @@ function computeBonus(employee){
       employeeBonus.bonusPercentage=.10
     }
 
+//compute additional bonus percentage, if applicable
   if(employee.employeeNumber.toString().length===4){
     employeeBonus.bonusPercentage= employeeBonus.bonusPercentage+.05
   }
-  if (employee.annualSalary>65000){
+  if (Number(employee.annualSalary)>65000){
     employeeBonus.bonusPercentage= employeeBonus.bonusPercentage-.01
   }
 
@@ -78,8 +81,23 @@ function computeBonus(employee){
   }else if (employeeBonus.bonusPercentage<0){
     employeeBonus.bonusPercentage=0;
   }
+  //calculate final bonus and compensation
+  employeeBonus.totalBonus=Math.round(employee.annualSalary*employeeBonus.bonusPercentage);
+  employeeBonus.totalCompensation= employeeBonus.totalBonus+Number(employee.annualSalary);
+  //employeeBonus.bonusPercentage=employeeBonus.bonusPercentage*10;
+
   return employeeBonus;
 }
 
-console.log(computeBonus(employees[2]));
+//call function to loop entire employee array 
+function createBonusObj(employeesArray){
+  let bonusArray=[];
+  for(i=0;i<employeesArray.length;i++){
+    bonusArray.push((computeBonus(employeesArray[i])))
+  }
+  return bonusArray;
+}
+
+
+console.log(createBonusObj(employees));
 
