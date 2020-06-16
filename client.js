@@ -45,8 +45,9 @@ name
 bonusPercentage
 totalCompensation
 totalBonus
-*/
+use number.toString().length to find digits in number
 
+*/
 function computeBonus(employee){
     let employeeBonus={
     name: employee.name,
@@ -57,17 +58,19 @@ function computeBonus(employee){
 
     if(employee.reviewRating<=2){
       employeeBonus.bonusPercentage=0;
-    };
-    else if (employee.reviewRating=3{
+    }else if (employee.reviewRating=3){
       employeeBonus.bonusPercentage=.04
-    }
-    else if (employee.reviewRating=4){
+    }else if (employee.reviewRating=4){
       employeeBonus.bonusPercentage=.06
-    }
-    else if (employee.reviewRating=5){
+    }else if (employee.reviewRating=5){
       employeeBonus.bonusPercentage=.10
     }
-  }
 
-console.log( employees );
+  if(employee.employeeNumber.toString().length=4){
+    employeeBonus.bonusPercentage= employeeBonus.bonusPercentage+.05
+  }
+  return employeeBonus;
+}
+
+console.log(computeBonus(employees[0]));
 
