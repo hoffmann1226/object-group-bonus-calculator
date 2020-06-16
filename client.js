@@ -40,4 +40,26 @@ const employees = [
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
+/*employeeBonus properties:
+name
+bonusPercentage
+totalCompensation
+totalBonus
+*/
+
+function computeBonus(employee){
+    let employeeBonus={
+    name: employee.name,
+    bonusPercentage: 0,
+    totalCompensation:0,
+    totalBonus:0
+    };
+
+    if(employee.reviewRating<=2){
+      employee.bonusPercentage=0;
+    }
+    
+  }
+
 console.log( employees );
+
